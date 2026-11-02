@@ -208,3 +208,48 @@
     if (history.pushState) history.pushState(null, '', '#' + id);
   });
 })();
+
+/* ленты со стрелками и просмотр крупно (02.11.2026) */
+(function () {
+  var d = document;
+  d.querySelectorAll('.lane-wrap').forEach(function (w) {
+    var lane = w.querySelector('.lane'), prev = w.querySelector('.lane-prev'), next = w.querySelector('.lane-next');
+    function step() { var li = lane.querySelector('li'); return li ? li.getBoundingClientRect().width + 18 : 300; }
+    function upd() {
+      var max = lane.scrollWidth - lane.clientWidth;
+      prev.hidden = next.hidden = max <= 2;
+      prev.disabled = lane.scrollLeft <= 2;
+      next.disabled = lane.scrollLeft >= max - 2;
+    }
+    prev.addEventListener('click', function () { lane.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function () { lane.scrollBy({ left: step(), behavior: 'smooth' }); });
+    lane.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev.click(); }
+    });
+    lane.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    lane.querySelectorAll('img').forEach(function (i) { i.addEventListener('load', upd); });
+    upd();
+  });
+  var box = d.getElementById('lbox'); if (!box) return;
+  var img = box.querySelector('img'), list = [], idx = 0, opener = null;
+  function show(i) { idx = (i + list.length) % list.length; var b = list[idx]; img.src = b.getAttribute('data-full'); img.alt = b.querySelector('img').alt; }
+  function open(b) {
+    list = Array.prototype.slice.call(b.closest('.lane').querySelectorAll('.lane-it'));
+    opener = b; show(list.indexOf(b));
+    box.classList.add('is-open'); box.setAttribute('aria-hidden', 'false'); d.body.style.overflow = 'hidden';
+    box.querySelector('.lb-x').focus();
+  }
+  function close() { box.classList.remove('is-open'); box.setAttribute('aria-hidden', 'true'); d.body.style.overflow = ''; if (opener) opener.focus(); }
+  d.querySelectorAll('.lane-it').forEach(function (b) { b.addEventListener('click', function () { open(b); }); });
+  box.querySelectorAll('[data-lb-close]').forEach(function (b) { b.addEventListener('click', close); });
+  box.querySelector('.lb-prev').addEventListener('click', function () { show(idx - 1); });
+  box.querySelector('.lb-next').addEventListener('click', function () { show(idx + 1); });
+  d.addEventListener('keydown', function (e) {
+    if (!box.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(idx + 1);
+    if (e.key === 'ArrowLeft') show(idx - 1);
+  });
+})();
