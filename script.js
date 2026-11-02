@@ -4,20 +4,90 @@
   var doc = document;
   var body = doc.body;
   var WA = '77476686475';
+  var ASSET_V = ((doc.currentScript && doc.currentScript.src.match(/[?&]v=([^&]+)/)) || [])[1] || '';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* интро: шов под заголовком и появление портрета после загрузки шрифтов */
-  function loaded() { body.classList.add('is-loaded'); }
+  function loaded() { body.classList.add('is-loaded'); fitH1(); }
   if (doc.fonts && doc.fonts.ready) { doc.fonts.ready.then(loaded, loaded); } else { setTimeout(loaded, 300); }
   setTimeout(loaded, 1500);
 
-  /* шапка */
+  /* языки: русский в разметке, казахский словарь грузится отдельным файлом по выбору KZ */
+  var I18N = { ru: {}, kk: null };
+  var nodes = Array.prototype.slice.call(doc.querySelectorAll('[data-i18n]'));
+  var phNodes = Array.prototype.slice.call(doc.querySelectorAll('[data-i18n-ph]'));
+  var META = {
+    title: doc.title,
+    description: (doc.querySelector('meta[name="description"]') || {}).content || ''
+  };
+  nodes.forEach(function (el) { var k = el.getAttribute('data-i18n'); if (!(k in I18N.ru)) I18N.ru[k] = el.innerHTML; });
+  phNodes.forEach(function (el) { var k = el.getAttribute('data-i18n-ph'); if (!(k in I18N.ru)) I18N.ru[k] = el.getAttribute('placeholder') || ''; });
+
+  function loadLang(lang, done) {
+    if (lang !== 'kk' || I18N.kk) return done();
+    var s = doc.createElement('script');
+    s.src = 'assets/lang/kk.js' + (ASSET_V ? '?v=' + ASSET_V : '');
+    s.onload = function () { if (window.SITE_KK) I18N.kk = window.SITE_KK; done(); };
+    s.onerror = function () { done(); };
+    doc.head.appendChild(s);
+  }
+  function applyLang(lang) {
+    var dict = (lang === 'kk' && I18N.kk) ? I18N.kk : null;
+    if (lang === 'kk' && !dict) lang = 'ru';
+    nodes.forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      var v = dict ? dict[k] : I18N.ru[k];
+      if (v == null) v = I18N.ru[k];
+      if (v != null && el.innerHTML !== v) el.innerHTML = v;
+    });
+    phNodes.forEach(function (el) {
+      var k = el.getAttribute('data-i18n-ph');
+      var v = dict ? dict[k] : I18N.ru[k];
+      el.setAttribute('placeholder', v != null ? v : I18N.ru[k]);
+    });
+    doc.documentElement.lang = lang;
+    doc.title = dict && dict['meta.title'] ? dict['meta.title'] : META.title;
+    var md = doc.querySelector('meta[name="description"]');
+    if (md) md.content = dict && dict['meta.description'] ? dict['meta.description'] : META.description;
+    doc.querySelectorAll('.lang button').forEach(function (b) {
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+    fitH1();
+  }
+  function setLang(lang) { loadLang(lang, function () { applyLang(lang); }); }
+  window.setLang = setLang;
+  doc.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+  });
+  (function initLang() {
+    var forced = (location.search.match(/[?&]lang=(ru|kk)/) || [])[1];
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    var lang = forced || saved || 'ru';
+    if (lang === 'kk') setLang('kk');
+  })();
+
+  /* заголовок героя: уменьшать кегль, пока слово не влезает (казахский длиннее) */
+  var h1 = doc.querySelector('.hero h1');
+  function fitH1() {
+    if (!h1) return;
+    h1.style.fontSize = '';
+    var size = parseFloat(getComputedStyle(h1).fontSize);
+    var guard = 0;
+    while (h1.scrollWidth > h1.clientWidth + 1 && guard < 10) {
+      size *= 0.95; h1.style.fontSize = size + 'px'; guard++;
+    }
+  }
+  var lastW = window.innerWidth;
+  window.addEventListener('resize', function () { if (window.innerWidth === lastW) return; lastW = window.innerWidth; fitH1(); });
+
+  /* шапка и меню */
   var hdr = doc.querySelector('.hdr');
   var burger = doc.querySelector('.burger');
   var menu = doc.getElementById('menu');
-
-  function onScroll() { hdr.classList.toggle('is-scrolled', window.scrollY > 8); }
-  onScroll();
-
   function setMenu(open) {
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     menu.hidden = !open;
@@ -28,29 +98,12 @@
   doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) setMenu(false); });
   window.addEventListener('resize', function () { if (window.innerWidth >= 1024 && !menu.hidden) setMenu(false); });
 
-  /* язык: словарь казахской версии подключается отдельным файлом по выбору KZ */
-  var langBtns = doc.querySelectorAll('.lang button');
-  langBtns.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var lang = b.getAttribute('data-lang');
-      if (window.setLang) { window.setLang(lang); return; }
-      langBtns.forEach(function (x) {
-        var on = x === b;
-        x.classList.toggle('is-active', on);
-        x.setAttribute('aria-pressed', on ? 'true' : 'false');
-      });
-    });
-  });
-
   /* золотой шов в блоке «С чем вы приходите»: прогресс по прокрутке */
   var symList = doc.querySelector('.sym-list');
   var symItems = Array.prototype.slice.call(doc.querySelectorAll('.sym-item'));
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ticking = false;
-
   function measure() {
     ticking = false;
-    onScroll();
     if (!symList || reduce) return;
     var vh = window.innerHeight;
     var r = symList.getBoundingClientRect();
@@ -70,14 +123,14 @@
   measure();
   if (reduce && symList) { symList.style.setProperty('--p', '1'); symItems.forEach(function (el) { el.classList.add('is-on'); }); }
 
-  /* тихое проявление фотографий */
-  var rv = doc.querySelectorAll('.rv');
+  /* тихое проявление: фото и блик золота на логотипе */
+  var rv = doc.querySelectorAll('.rv, .centr-logo');
   if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
       });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.25 });
     rv.forEach(function (el) { io.observe(el); });
   } else {
     rv.forEach(function (el) { el.classList.add('is-in'); });
@@ -136,12 +189,12 @@
       window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
       var ok = form.querySelector('.form-ok');
       ok.hidden = false;
-      ok.focus && ok.focus();
+      ok.focus();
     });
     form.elements.phone.addEventListener('input', function () { this.classList.remove('is-err'); });
   }
 
-  /* плавный переход по якорям с учётом шапки */
+  /* переход по якорям с учётом шапки */
   doc.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');
     if (!a) return;
