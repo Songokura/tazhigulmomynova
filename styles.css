@@ -501,3 +501,12 @@ body.modal-open .bar{display:none}
   .rev-video img,.fr-t,.fr-go{transition:none}
   .centr-logo.is-in .shine,.centr-logo:hover .shine{animation:none}
 }
+
+/* карточка-цитата вместо кадров из роликов (02.11.2026) */
+.q-card{position:relative;margin:0;width:min(100%,360px);aspect-ratio:4/5;border-radius:var(--r-l);overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,var(--coffee-2) 0%,var(--coffee) 55%,var(--coffee-3) 100%);border:1px solid var(--line-gold);box-shadow:0 30px 60px -36px rgba(42,31,22,.6);display:flex;flex-direction:column;justify-content:flex-end;padding:36px 32px 40px;color:var(--gold-light)}
+.q-seam{position:absolute;top:-2%;left:22%;width:40px;height:104%;color:var(--gold);opacity:.85;pointer-events:none}
+.q-seam use{stroke-width:1.4}
+.q-card-t{position:relative;margin:0;font-family:var(--ff-i);font-style:italic;font-weight:500;font-size:clamp(25px,2.5vw,31px);line-height:1.28;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.q-card-dot{position:relative;display:block;width:9px;height:9px;margin-top:26px;transform:rotate(45deg);background:var(--metal)}
+.split-in .q-card{justify-self:center}
+@media (max-width:760px){.q-card{aspect-ratio:auto;min-height:300px;padding:30px 26px 32px}}
