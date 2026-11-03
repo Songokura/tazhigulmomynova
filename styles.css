@@ -709,7 +709,7 @@ body.modal-open .bar{display:none}
 .cs-n{display:flex;align-items:baseline;justify-content:center;gap:4px;line-height:1}
 .cs-n b{display:inline-block;font:400 clamp(40px,9vw,58px)/1 var(--ff-d);font-weight:400;letter-spacing:-.01em;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:lining-nums tabular-nums}
 .cs-n span{font:400 clamp(22px,4.6vw,30px)/1 var(--ff-d);color:var(--gold-light)}
-.centr-stats li > p:last-child{font-size:15px;line-height:1.4;color:rgba(246,239,227,.78);max-width:16ch}
+.centr-stats li > p:last-child{font-size:15px;line-height:1.4;color:rgba(246,239,227,.78);max-width:20ch}
 @media (min-width:1024px){
   .centr-in{gap:80px}
   .centr-stats{max-width:560px;gap:44px 40px;border-left:1px solid rgba(233,201,120,.28);padding-left:64px;text-align:left}
