@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alice&family=Cormorant:ital,wght@1,500&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/tazhigul-portrait.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261103-12">
+<link rel="stylesheet" href="styles.css?v=20261103-13">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -578,9 +578,10 @@
         <label><input type="radio" name="format" value="Онлайн"><span data-i18n="form.f2">Онлайн</span></label>
       </fieldset>
       <label><span data-i18n="form.msg">Что беспокоит <em>(по желанию)</em></span><textarea name="message" rows="3" placeholder="Можно одной фразой" data-i18n-ph="form.msg_ph"></textarea></label>
+      <label class="agree"><input type="checkbox" name="agree" value="да" required><span class="agree-box" aria-hidden="true"></span><span class="agree-t" data-i18n="form.agree">Я ознакомлен(а) с <a href="oferta/" target="_blank" rel="noopener">договором публичной оферты</a> и согласен(на) с его условиями</span></label>
+      <p class="agree-err" role="alert" hidden data-i18n="form.agree_err">Отметьте согласие с договором оферты, чтобы отправить заявку.</p>
       <button class="btn btn-gold btn-full" type="submit"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i18n="form.btn">Отправить в WhatsApp</span></button>
       <p class="form-f" data-i18n="form.f">Индивидуально и конфиденциально. Отвечает Тажигуль.</p>
-      <p class="form-f form-of" data-i18n="form.of">Условия записи - в <a href="oferta/">договоре публичной оферты</a>.</p>
       <div class="form-ok" hidden tabindex="-1">
         <b data-i18n="form.ok">Спасибо.</b>
         <p><span data-i18n="form.okp">WhatsApp открылся в соседней вкладке. Если нет - напишите на</span> <a href="https://wa.me/77476686475" target="_blank" rel="noopener">+7&nbsp;747&nbsp;668&nbsp;64&nbsp;75</a>.</p>
@@ -641,6 +642,6 @@
   </figure>
 </div>
 
-<script src="script.js?v=20261103-12" defer></script>
+<script src="script.js?v=20261103-13" defer></script>
 </body>
 </html>

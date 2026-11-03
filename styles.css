@@ -718,3 +718,16 @@ body.modal-open .bar{display:none}
   .cs-n{justify-content:flex-start}
   .cs-n b{font-size:clamp(50px,4.4vw,64px)}
 }
+
+/* согласие с офертой */
+.form label.agree{flex-direction:row;align-items:flex-start;gap:12px;font-size:14px;line-height:1.45;color:var(--ink);cursor:pointer;position:relative;padding:4px 0}
+.agree input{position:absolute;opacity:0;width:22px;height:22px;margin:0;top:3px;left:0;cursor:pointer}
+.agree-box{flex:0 0 22px;height:22px;border:1.5px solid var(--gold);border-radius:6px;background:#fff;display:grid;place-items:center;transition:background .2s,border-color .2s}
+.agree-box::after{content:"";width:6px;height:11px;border:solid var(--coffee-3);border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);margin-top:-2px;transition:transform .18s var(--ease)}
+.agree input:checked + .agree-box{background:var(--metal);border-color:var(--gold-dark)}
+.agree input:checked + .agree-box::after{transform:rotate(45deg) scale(1)}
+.agree input:focus-visible + .agree-box{outline:2px solid var(--gold);outline-offset:3px}
+.agree-t a{color:var(--coffee);border-bottom:1px solid var(--gold);font-weight:500}
+.agree.is-err .agree-box{border-color:#B3482E;box-shadow:0 0 0 3px rgba(179,72,46,.15)}
+.agree-err{font-size:13px;color:#B3482E;margin-top:-6px}
+.agree-err[hidden]{display:none}

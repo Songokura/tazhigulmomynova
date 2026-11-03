@@ -178,6 +178,13 @@
         return;
       }
       phone.classList.remove('is-err');
+      var agree = form.elements.agree, agreeErr = form.querySelector('.agree-err');
+      if (agree && !agree.checked) {
+        agree.closest('.agree').classList.add('is-err');
+        if (agreeErr) agreeErr.hidden = false;
+        agree.focus();
+        return;
+      }
       var name = (form.elements.name.value || '').trim();
       var fmt = form.querySelector('input[name="format"]:checked');
       var msg = (form.elements.message.value || '').trim();
@@ -185,13 +192,19 @@
         (name ? '\nИмя: ' + name : '') +
         '\nТелефон: ' + phone.value.trim() +
         (fmt ? '\nФормат: ' + fmt.value : '') +
-        (msg ? '\n' + msg : '');
+        (msg ? '\n' + msg : '') +
+        '\nС договором оферты ознакомлен(а) и согласен(на).';
       window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
       var ok = form.querySelector('.form-ok');
       ok.hidden = false;
       ok.focus();
     });
     form.elements.phone.addEventListener('input', function () { this.classList.remove('is-err'); });
+    if (form.elements.agree) form.elements.agree.addEventListener('change', function () {
+      if (!this.checked) return;
+      this.closest('.agree').classList.remove('is-err');
+      var er = form.querySelector('.agree-err'); if (er) er.hidden = true;
+    });
   }
 
   /* переход по якорям с учётом шапки */
