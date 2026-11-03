@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alice&family=Cormorant:ital,wght@1,500&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/tazhigul-portrait.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261103-7">
+<link rel="stylesheet" href="styles.css?v=20261103-8">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -74,6 +74,8 @@
   <symbol id="ic-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M3.5 6.5h17v11h-17z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="m3.5 7 8.5 6.5L20.5 7"/></symbol>
   <symbol id="ic-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
   <symbol id="ic-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 12h13m-5-6 6 6-6 6"/></symbol>
+  <symbol id="fl-us" viewBox="0 0 19 10"><rect width="19" height="10" fill="#fff"/><path fill="#B22234" d="M0 0.000h19v0.769H0zM0 1.538h19v0.769H0zM0 3.077h19v0.769H0zM0 4.615h19v0.769H0zM0 6.154h19v0.769H0zM0 7.692h19v0.769H0zM0 9.231h19v0.769H0z"/><rect width="7.6" height="5.385" fill="#3C3B6E"/></symbol>
+  <symbol id="fl-ru" viewBox="0 0 9 6"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#0039A6"/><rect y="4" width="9" height="2" fill="#D52B1E"/></symbol>
   <symbol id="ic-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13l10-6.5z"/></symbol>
   <symbol id="zq-tide" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></g></symbol>
   <symbol id="zq-moon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14.5A7.5 7.5 0 1 1 9.5 5a6 6 0 0 0 9.5 9.5Z"/><path d="M17 3.5v3M15.5 5h3"/></g></symbol>
@@ -349,37 +351,52 @@
       <li><span class="num">02</span><div><h3 data-i18n="st.2h">Первая встреча</h3><p data-i18n="st.2p">Диагностика и консультация: что беспокоит, как давно, что уже пробовали и чего ждёте от работы.</p></div></li>
       <li><span class="num">03</span><div><h3 data-i18n="st.3h">Индивидуальный план</h3><p data-i18n="st.3p">После знакомства с вашим запросом обсудим направления, продолжительность и условия дальнейшей работы.</p></div></li>
     </ol>
-    <div class="price-main">
-      <div class="pm-txt">
+    <ul class="pkgs">
+      <li class="pkg pkg-top">
+        <span class="pkg-badge" data-i18n="pk.top">С этого начинается работа</span>
         <h3 data-i18n="pr.mh">Первая встреча - диагностика и консультация</h3>
-        <p data-i18n="pr.mp">60-90 минут, очно в Астане или онлайн.</p>
-      </div>
-      <div class="pm-sum">
-        <b>20&nbsp;000&nbsp;₸</b>
-        <a class="btn btn-gold" href="https://wa.me/77476686475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D0%B6%D0%B8%D0%B3%D1%83%D0%BB%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D0%B5%D1%80%D0%B2%D1%83%D1%8E%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%87%D1%83." target="_blank" rel="noopener"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i18n="pr.mcta">Записаться на первую встречу</span></a>
-      </div>
-    </div>
-    <ul class="price-rows">
-      <li>
-        <div class="pr-n"><b data-i18n="pr.r1">Одна индивидуальная сессия</b><span data-i18n="pr.r1s">после диагностики</span></div>
-        <div class="pr-s"><b>60&nbsp;000&nbsp;₸</b></div>
-        <a class="pr-a" href="https://wa.me/77476686475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D0%B6%D0%B8%D0%B3%D1%83%D0%BB%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B8." target="_blank" rel="noopener"><svg width="16" height="16"><use href="#ic-wa"/></svg><span data-i18n="pr.ask">Обсудить</span></a>
+        <p class="pkg-d" data-i18n="pk.1d">60-90 минут: что беспокоит, как давно, что уже пробовали и чего ждёте от работы. Очно в Астане или онлайн.</p>
+        <div class="pkg-foot">
+          <p class="pkg-sum"><b>20&nbsp;000</b><span class="pkg-cur">₸</span><span class="pkg-per" data-i18n="pk.p1">/ встреча</span></p>
+          <ul class="pkg-fx"><li><svg width="18" height="12" aria-hidden="true"><use href="#fl-us"/></svg>≈&nbsp;$44</li><li><svg width="18" height="12" aria-hidden="true"><use href="#fl-ru"/></svg>≈&nbsp;3&nbsp;540&nbsp;₽</li></ul>
+          <a class="btn btn-gold pkg-btn" href="https://wa.me/77476686475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D0%B6%D0%B8%D0%B3%D1%83%D0%BB%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D0%B5%D1%80%D0%B2%D1%83%D1%8E%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%87%D1%83." target="_blank" rel="noopener"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i18n="pk.btn">Записаться</span></a>
+        </div>
       </li>
-      <li>
-        <div class="pr-n"><b data-i18n="pr.r2">Курс из 5 сессий</b><span data-i18n="pr.r2s">скидка 10%, вместо 300&nbsp;000&nbsp;₸</span></div>
-        <div class="pr-s"><b>270&nbsp;000&nbsp;₸</b></div>
-        <a class="pr-a" href="https://wa.me/77476686475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D0%B6%D0%B8%D0%B3%D1%83%D0%BB%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B8%D0%B7%205%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B9." target="_blank" rel="noopener"><svg width="16" height="16"><use href="#ic-wa"/></svg><span data-i18n="pr.ask">Обсудить</span></a>
+      <li class="pkg">
+        <h3 data-i18n="pr.r1">Одна индивидуальная сессия</h3>
+        <p class="pkg-d" data-i18n="pk.2d">Индивидуальная работа по вашему запросу после диагностики.</p>
+        <div class="pkg-foot">
+          <p class="pkg-sum"><b>60&nbsp;000</b><span class="pkg-cur">₸</span><span class="pkg-per" data-i18n="pk.p2">/ сессия</span></p>
+          <ul class="pkg-fx"><li><svg width="18" height="12" aria-hidden="true"><use href="#fl-us"/></svg>≈&nbsp;$132</li><li><svg width="18" height="12" aria-hidden="true"><use href="#fl-ru"/></svg>≈&nbsp;10&nbsp;619&nbsp;₽</li></ul>
+          <a class="btn btn-dark pkg-btn" href="https://wa.me/77476686475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D0%B6%D0%B8%D0%B3%D1%83%D0%BB%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B8." target="_blank" rel="noopener"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i18n="pk.btn">Записаться</span></a>
+        </div>
       </li>
-      <li>
-        <div class="pr-n"><b data-i18n="pr.r3">Курс из 10 сессий</b><span data-i18n="pr.r3s">скидка 20%, вместо 600&nbsp;000&nbsp;₸</span></div>
-        <div class="pr-s"><b>480&nbsp;000&nbsp;₸</b></div>
-        <a class="pr-a" href="https://wa.me/77476686475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D0%B6%D0%B8%D0%B3%D1%83%D0%BB%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B8%D0%B7%2010%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B9." target="_blank" rel="noopener"><svg width="16" height="16"><use href="#ic-wa"/></svg><span data-i18n="pr.ask">Обсудить</span></a>
+      <li class="pkg">
+        <h3 data-i18n="pr.r2">Курс из 5 сессий</h3>
+        <p class="pkg-d" data-i18n="pk.3d">Курс индивидуальной работы по плану, который мы составим после диагностики.</p>
+        <div class="pkg-foot">
+          <p class="pkg-old"><s>300&nbsp;000&nbsp;₸</s><span data-i18n="pk.off3">скидка 10%</span></p>
+          <p class="pkg-sum"><b>270&nbsp;000</b><span class="pkg-cur">₸</span><span class="pkg-per" data-i18n="pk.p3">/ 5 сессий</span></p>
+          <ul class="pkg-fx"><li><svg width="18" height="12" aria-hidden="true"><use href="#fl-us"/></svg>≈&nbsp;$595</li><li><svg width="18" height="12" aria-hidden="true"><use href="#fl-ru"/></svg>≈&nbsp;47&nbsp;788&nbsp;₽</li></ul>
+          <a class="btn btn-dark pkg-btn" href="https://wa.me/77476686475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D0%B6%D0%B8%D0%B3%D1%83%D0%BB%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B8%D0%B7%205%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B9." target="_blank" rel="noopener"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i18n="pk.btn">Записаться</span></a>
+        </div>
+      </li>
+      <li class="pkg">
+        <h3 data-i18n="pr.r3">Курс из 10 сессий</h3>
+        <p class="pkg-d" data-i18n="pk.4d">Курс индивидуальной работы из 10 встреч по индивидуальному плану.</p>
+        <div class="pkg-foot">
+          <p class="pkg-old"><s>600&nbsp;000&nbsp;₸</s><span data-i18n="pk.off4">скидка 20%</span></p>
+          <p class="pkg-sum"><b>480&nbsp;000</b><span class="pkg-cur">₸</span><span class="pkg-per" data-i18n="pk.p4">/ 10 сессий</span></p>
+          <ul class="pkg-fx"><li><svg width="18" height="12" aria-hidden="true"><use href="#fl-us"/></svg>≈&nbsp;$1&nbsp;058</li><li><svg width="18" height="12" aria-hidden="true"><use href="#fl-ru"/></svg>≈&nbsp;84&nbsp;956&nbsp;₽</li></ul>
+          <a class="btn btn-dark pkg-btn" href="https://wa.me/77476686475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D0%B6%D0%B8%D0%B3%D1%83%D0%BB%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B8%D0%B7%2010%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B9." target="_blank" rel="noopener"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i18n="pk.btn">Записаться</span></a>
+        </div>
       </li>
     </ul>
     <div class="price-notes">
       <p data-i18n="pr.n1"><b>Рассрочка.</b> Курс сессий можно оплачивать частями - условия обсуждаются при записи.</p>
       <p data-i18n="pr.n2">Приём проходит по предварительной записи и полной предоплате. Стоимость и условия переноса сообщаются до оплаты.</p>
-      <p data-i18n="pr.abroad">Для клиентов из-за рубежа: диагностика - около $45, сессия - около $130; итог по курсу на день оплаты.</p>
+      <p data-i18n="pr.fx">Суммы в долларах и рублях ориентировочные и уточняются по курсу на день оплаты.</p>
+      <p data-i18n="pr.of">Условия записи, переноса и оплаты - в <a href="oferta/">договоре публичной оферты</a>.</p>
     </div>
     <aside class="vazhno" id="vazhno">
       <h3 data-i18n="vz.h">Важно знать</h3>
@@ -552,6 +569,7 @@
       <label><span data-i18n="form.msg">Что беспокоит <em>(по желанию)</em></span><textarea name="message" rows="3" placeholder="Можно одной фразой" data-i18n-ph="form.msg_ph"></textarea></label>
       <button class="btn btn-gold btn-full" type="submit"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i18n="form.btn">Отправить в WhatsApp</span></button>
       <p class="form-f" data-i18n="form.f">Индивидуально и конфиденциально. Отвечает Тажигуль.</p>
+      <p class="form-f form-of" data-i18n="form.of">Условия записи - в <a href="oferta/">договоре публичной оферты</a>.</p>
       <div class="form-ok" hidden tabindex="-1">
         <b data-i18n="form.ok">Спасибо.</b>
         <p><span data-i18n="form.okp">WhatsApp открылся в соседней вкладке. Если нет - напишите на</span> <a href="https://wa.me/77476686475" target="_blank" rel="noopener">+7&nbsp;747&nbsp;668&nbsp;64&nbsp;75</a>.</p>
@@ -582,6 +600,7 @@
   </div>
   <div class="wrap foot-low">
     <span data-i18n="ft.copy">© 2026 Тажигуль Момынова</span>
+    <a class="foot-of" href="oferta/" data-i18n="ft.of">Договор публичной оферты</a>
     <span data-i18n="ft.disc">Консультации не являются медицинской услугой. Если вам очень тяжело - обратитесь к врачу или по номеру 112.</span>
   </div>
 </footer>
@@ -611,6 +630,6 @@
   </figure>
 </div>
 
-<script src="script.js?v=20261103-7" defer></script>
+<script src="script.js?v=20261103-8" defer></script>
 </body>
 </html>
