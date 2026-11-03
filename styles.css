@@ -702,3 +702,18 @@ body.modal-open .bar{display:none}
 .foot-of{border-bottom:1px solid rgba(246,239,227,.3)}
 @media (min-width:760px){.pkgs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1140px){.pkgs{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.pkg{padding:34px 22px 24px}.pkg-sum b{font-size:clamp(38px,3vw,44px)}.pkg-fx{gap:6px}.pkg-fx li{padding:6px 10px;font-size:13px;gap:6px}.pkg-per{flex-basis:100%;margin-top:8px}}
+
+/* опыт в цифрах */
+.centr-stats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px;width:100%;max-width:520px;text-align:center}
+.centr-stats li{display:flex;flex-direction:column;align-items:center;gap:8px}
+.cs-n{display:flex;align-items:baseline;justify-content:center;gap:4px;line-height:1}
+.cs-n b{display:inline-block;font:400 clamp(40px,9vw,58px)/1 var(--ff-d);font-weight:400;letter-spacing:-.01em;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:lining-nums tabular-nums}
+.cs-n span{font:400 clamp(22px,4.6vw,30px)/1 var(--ff-d);color:var(--gold-light)}
+.centr-stats li > p:last-child{font-size:15px;line-height:1.4;color:rgba(246,239,227,.78);max-width:16ch}
+@media (min-width:1024px){
+  .centr-in{gap:80px}
+  .centr-stats{max-width:560px;gap:44px 40px;border-left:1px solid rgba(233,201,120,.28);padding-left:64px;text-align:left}
+  .centr-stats li{align-items:flex-start}
+  .cs-n{justify-content:flex-start}
+  .cs-n b{font-size:clamp(50px,4.4vw,64px)}
+}
