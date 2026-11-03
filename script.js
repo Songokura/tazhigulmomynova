@@ -230,19 +230,30 @@
     lane.addEventListener('scroll', upd, { passive: true });
     window.addEventListener('resize', upd);
     lane.querySelectorAll('img').forEach(function (i) { i.addEventListener('load', upd); });
+    var det = w.closest('details');
+    if (det) det.addEventListener('toggle', upd);
     upd();
   });
   var box = d.getElementById('lbox'); if (!box) return;
   var img = box.querySelector('img'), list = [], idx = 0, opener = null;
-  function show(i) { idx = (i + list.length) % list.length; var b = list[idx]; img.src = b.getAttribute('data-full'); img.alt = b.querySelector('img').alt; }
-  function open(b) {
-    list = Array.prototype.slice.call(b.closest('.lane').querySelectorAll('.lane-it'));
-    opener = b; show(list.indexOf(b));
+  function show(i) {
+    idx = (i + list.length) % list.length; var b = list[idx], im = b.querySelector('img:last-child');
+    img.src = b.getAttribute('data-full'); img.alt = b.getAttribute('data-alt') || (im ? im.alt : '');
+  }
+  function open(b, group, opn) {
+    list = Array.prototype.slice.call((group || b.closest('.lane, [data-gallery]')).querySelectorAll('.lane-it'));
+    opener = opn || b; show(Math.max(0, list.indexOf(b)));
     box.classList.add('is-open'); box.setAttribute('aria-hidden', 'false'); d.body.style.overflow = 'hidden';
     box.querySelector('.lb-x').focus();
   }
   function close() { box.classList.remove('is-open'); box.setAttribute('aria-hidden', 'true'); d.body.style.overflow = ''; if (opener) opener.focus(); }
-  d.querySelectorAll('.lane-it').forEach(function (b) { b.addEventListener('click', function () { open(b); }); });
+  d.querySelectorAll('.lane .lane-it, [data-gallery] .lane-it').forEach(function (b) { b.addEventListener('click', function () { open(b); }); });
+  d.querySelectorAll('[data-gallery-open]').forEach(function (t) {
+    t.addEventListener('click', function () {
+      var g = d.querySelector(t.getAttribute('data-gallery-open'));
+      if (g) open(g.querySelector('.lane-it'), g, t);
+    });
+  });
   box.querySelectorAll('[data-lb-close]').forEach(function (b) { b.addEventListener('click', close); });
   box.querySelector('.lb-prev').addEventListener('click', function () { show(idx - 1); });
   box.querySelector('.lb-next').addEventListener('click', function () { show(idx + 1); });
