@@ -55,8 +55,12 @@ dl{margin:0}
 main > .wrap > p{margin:16px 0 0}
 .foot{background:var(--coffee);color:rgba(246,239,227,.74);font-size:14px;padding:26px 0}
 .foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.dl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:24px 0 0}
+.dl{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;background:var(--metal);color:var(--coffee-3);font-weight:500;font-size:15px;text-decoration:none;box-shadow:0 12px 26px -14px rgba(163,101,9,.75)}
+.dl:hover{filter:brightness(1.06)}
+.dl-note{font-size:14px;color:var(--muted)}
 @media (max-width:640px){.toc ol{columns:1}.of-req div{grid-template-columns:1fr;gap:2px}.brand .nm{display:none}main{padding-top:36px}}
-@media print{.hdr,.toc,.foot{display:none}body{background:#fff}}
+@media print{.hdr,.toc,.foot,.dl-row{display:none}body{background:#fff;font-size:11pt;line-height:1.5}main{padding:0}.kick{display:none}.lead,.of-req{border-color:#ccc;background:#fff}h2{margin:22px 0 8px;break-after:avoid}h2 span{-webkit-text-fill-color:#8A6212;color:#8A6212}.of-pts div{padding:3px 0;break-inside:avoid}}
 </style>
   <script src="https://lead-bot.sultan-askarov-kz.workers.dev/t.js" data-site="tazhigulmomynova" defer></script>
 </head>
@@ -72,6 +76,7 @@ main > .wrap > p{margin:16px 0 0}
     <p class="kick">Документы</p>
     <h1>Договор публичной оферты</h1>
     <p class="sub">на оказание индивидуальных консультационных услуг. Центр психоэнергетической трансформации личности Тажигуль Момыновой</p>
+    <p class="dl-row"><a class="dl" href="dogovor-oferty-tazhigul-momynova.pdf" download><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><span>Скачать PDF</span></a><span class="dl-note">Тот же текст, что на этой странице</span></p>
     <p class="lead">Настоящий договор определяет условия оказания индивидуальных консультационных услуг. Оплата услуги после предоставления Клиенту возможности ознакомиться с настоящими условиями означает принятие условий договора в пределах, допускаемых законодательством Республики Казахстан.</p>
     <nav class="toc" aria-label="Разделы договора"><b>Разделы</b><ol><li><a href="#p1">Предмет договора</a></li><li><a href="#p2">Диагностика и начало работы</a></li><li><a href="#p3">Особенности авторского подхода</a></li><li><a href="#p4">Рекомендации и участие клиента</a></li><li><a href="#p5">Стоимость, предоплата и бронирование времени</a></li><li><a href="#p6">Перенос, отмена и неявка</a></li><li><a href="#p7">Досрочное прекращение работ и расчёты</a></li><li><a href="#p8">Видеонаблюдение, безопасность и конфиденциальность</a></li><li><a href="#p9">Публикация материалов клиента</a></li><li><a href="#p10">Персональные данные</a></li><li><a href="#p11">Границы услуги</a></li><li><a href="#p12">Обязанности исполнителя</a></li><li><a href="#p13">Обязанности клиента</a></li><li><a href="#p14">Претензии и споры</a></li><li><a href="#p15">Заключительные положения</a></li><li><a href="#p16">Реквизиты исполнителя</a></li></ol></nav>
     <h2 id="p1"><span>1.</span> Предмет договора</h2>
@@ -207,7 +212,7 @@ main > .wrap > p{margin:16px 0 0}
   </div>
 </main>
 <footer class="foot">
-  <div class="wrap"><span>© 2026 Тажигуль Момынова</span><a href="../">Вернуться на сайт</a></div>
+  <div class="wrap"><span>© 2026 Тажигуль Момынова</span><a href="dogovor-oferty-tazhigul-momynova.pdf" download>Скачать договор в PDF</a><a href="../">Вернуться на сайт</a></div>
 </footer>
 </body>
 </html>
