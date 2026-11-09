@@ -9,4 +9,4 @@ Allow: /
 Disallow: /assets/lang/
 Disallow: /*lang=kk
 
-Sitemap: https://songokura.github.io/tazhigulmomynova/sitemap.xml
+Sitemap: https://tazhigul.kz/sitemap.xml
