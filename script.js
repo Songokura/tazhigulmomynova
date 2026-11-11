@@ -194,6 +194,7 @@
         (fmt ? '\nФормат: ' + fmt.value : '') +
         (msg ? '\n' + msg : '') +
         '\nС договором оферты ознакомлен(а) и согласен(на).';
+      if (window.sendConversion) window.sendConversion('form');
       window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
       var ok = form.querySelector('.form-ok');
       ok.hidden = false;

@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alice&family=Cormorant:ital,wght@1,500&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/tazhigul-portrait.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261109-1">
+<link rel="stylesheet" href="styles.css?v=20261111-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,6 +57,33 @@
   ]
 }
 </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18513378358"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18513378358');
+    window.AW_CONV = {
+      phone: 'AW-18513378358/1g2qCN-3j7YdELb47vtE',
+      contact: 'AW-18513378358/jCfwCNfciLYdELb47vtE',
+      form: 'AW-18513378358/9oclCJTIj7YdELb47vtE'
+    };
+    function sendConversion(key) {
+      gtag('event', 'conversion', {
+        'send_to': window.AW_CONV[key],
+        'value': 1.0,
+        'currency': 'USD',
+        'transport_type': 'beacon'
+      });
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      if (/^tel:/i.test(href)) sendConversion('phone');
+      else if (/^mailto:/i.test(href) || /^https?:\/\/(wa\.me|api\.whatsapp\.com)\//i.test(href)) sendConversion('contact');
+    }, true);
+  </script>
   <script src="https://lead-bot.sultan-askarov-kz.workers.dev/t.js" data-site="tazhigulmomynova" defer></script>
 </head>
 <body>
@@ -642,6 +669,6 @@
   </figure>
 </div>
 
-<script src="script.js?v=20261109-1" defer></script>
+<script src="script.js?v=20261111-1" defer></script>
 </body>
 </html>

@@ -62,6 +62,33 @@ main > .wrap > p{margin:16px 0 0}
 @media (max-width:640px){.toc ol{columns:1}.of-req div{grid-template-columns:1fr;gap:2px}.brand .nm{display:none}main{padding-top:36px}}
 @media print{.hdr,.toc,.foot,.dl-row{display:none}body{background:#fff;font-size:11pt;line-height:1.5}main{padding:0}.kick{display:none}.lead,.of-req{border-color:#ccc;background:#fff}h2{margin:22px 0 8px;break-after:avoid}h2 span{-webkit-text-fill-color:#8A6212;color:#8A6212}.of-pts div{padding:3px 0;break-inside:avoid}}
 </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18513378358"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18513378358');
+    window.AW_CONV = {
+      phone: 'AW-18513378358/1g2qCN-3j7YdELb47vtE',
+      contact: 'AW-18513378358/jCfwCNfciLYdELb47vtE',
+      form: 'AW-18513378358/9oclCJTIj7YdELb47vtE'
+    };
+    function sendConversion(key) {
+      gtag('event', 'conversion', {
+        'send_to': window.AW_CONV[key],
+        'value': 1.0,
+        'currency': 'USD',
+        'transport_type': 'beacon'
+      });
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      if (/^tel:/i.test(href)) sendConversion('phone');
+      else if (/^mailto:/i.test(href) || /^https?:\/\/(wa\.me|api\.whatsapp\.com)\//i.test(href)) sendConversion('contact');
+    }, true);
+  </script>
   <script src="https://lead-bot.sultan-askarov-kz.workers.dev/t.js" data-site="tazhigulmomynova" defer></script>
 </head>
 <body>
